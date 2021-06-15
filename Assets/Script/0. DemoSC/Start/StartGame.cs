@@ -9,6 +9,7 @@ public class StartGame : MonoBehaviour
     public GameObject lobbyCanvas;
     public GameObject barCanvas;
     public GameObject tutorialCanvas;
+    public GameObject stageSelectCanvas;
 
     public Image background;
     public Image inputName;
@@ -28,8 +29,30 @@ public class StartGame : MonoBehaviour
 
     private FadeIO fadeIO;
     private bool tutorial;
+    private void Awake()
+    {
+        //PlayerPrefs.DeleteAll();
+        if (PlayerPrefs.HasKey("returnCat"))
+        {
+            PlayerPrefs.DeleteKey("returnCat");
+            this.gameObject.SetActive(false);
+            stageSelectCanvas.SetActive(true);
+            barCanvas.SetActive(true);
+        }
+    }
     private void Start()
     {
+        //음향
+        if (PlayerPrefs.HasKey("효과음제거"))
+            effectAS.volume = 0f;
+        else
+            effectAS.volume = 1f;
+
+        if (PlayerPrefs.HasKey("배경음제거"))
+            bgmAS.volume = 0f;
+        else
+            bgmAS.volume = 0.3f;
+
         bgmAS.clip = startBgm;
         bgmAS.Play();
     }
@@ -50,7 +73,7 @@ public class StartGame : MonoBehaviour
         effectAS.clip = clickClip;
         effectAS.Play();
 
-        DemoDataManager.characterDatasList[0].name = nameTx.text;
+        DemoDataManager.Instance.characterDatasList[0].name = nameTx.text;
 
         tutorial = true;
         StartCoroutine(waitForFadeIO());
@@ -67,7 +90,7 @@ public class StartGame : MonoBehaviour
         fadeImg.gameObject.SetActive(true);
         fadeIO.fadeout = true;
         yield return new WaitForSeconds(fadeIO.fadeTime);
-        if (DemoDataManager.characterDatasList[0].name == "dmlduddlekduddlqkqh")
+        if (DemoDataManager.Instance.characterDatasList[0].name == "dmlduddlekduddlqkqh")
         {
             background.gameObject.SetActive(false);
             inputName.gameObject.SetActive(true);
