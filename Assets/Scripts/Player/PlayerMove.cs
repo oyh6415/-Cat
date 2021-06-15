@@ -49,6 +49,7 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if(isSlow==false)
         {
             maxSpeed = 4;
@@ -134,8 +135,9 @@ public class PlayerMove : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if(collision.gameObject.tag=="EnemyBullet")
+        if(collision.gameObject.tag=="EnemyBullet"&&collision.gameObject.tag=="Enemy")
         {
+            rigid.velocity = Vector2.zero;
             Destroy(collision.gameObject);
         }
     }
@@ -149,7 +151,7 @@ public class PlayerMove : MonoBehaviour
             spriterenderer.color = new Color(1, 1, 1, 0.4f); //반투명화
             gunsprite.color = new Color(1, 1, 1, 0.4f); //반투명화
             rigid.velocity = Vector2.zero; //붙은 가속 제거
-            rigid.AddForce(new Vector2(dirc * 10f,5f), ForceMode2D.Impulse);
+            rigid.AddForce(new Vector2(dirc * 10f, 5f), ForceMode2D.Impulse);
             anim.SetTrigger("isAttacked");
             Invoke("offDameged", 1.2f);
         }
