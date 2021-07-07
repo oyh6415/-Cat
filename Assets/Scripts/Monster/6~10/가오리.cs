@@ -17,9 +17,7 @@ public class 가오리 : MonoBehaviour
     private int MonstercurHp;
     int PlayerStr;
     public float MonsterSpeed;
-    public string aniName;
     bool PlaySkill;
-    bool isPlaying;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,20 +35,20 @@ public class 가오리 : MonoBehaviour
         //PlayerStr=DemoDataManager.characterDatasList[0].allstr;
         MonsterSpeed = 2f;
         PlaySkill = true;
-        isPlaying = false;
     }
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
         bar.value = Mathf.Lerp(bar.value, (float)MonstercurHp / (float)TotalHp, Time.deltaTime * 10);
         if (isTracing && isDied == false)
         {
             Vector3 playerPos = traceTarget.transform.position;
-            if (playerPos.x < transform.position.x && isPlaying == false)
+            if (playerPos.x < transform.position.x)
             {
                 spriterenderer.flipX = false;
             }
-            else if (playerPos.x >= transform.position.x && isPlaying == false)
+            else if (playerPos.x >= transform.position.x)
             {
                 spriterenderer.flipX = true;
             }
@@ -76,20 +74,13 @@ public class 가오리 : MonoBehaviour
                 Invoke("Think", 1.5f);
             }
         }
-        else
+        if (nextmove == 1)
         {
-            PlayerTracing();
+            spriterenderer.flipX = true;
         }
-        if (isPlaying == false)
+        else if (nextmove == -1)
         {
-            if (nextmove == 1)
-            {
-                spriterenderer.flipX = true;
-            }
-            else if (nextmove == -1)
-            {
-                spriterenderer.flipX = false;
-            }
+            spriterenderer.flipX = false;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -185,12 +176,12 @@ public class 가오리 : MonoBehaviour
         {
             Vector3 playerPos = traceTarget.transform.position;
 
-            if (playerPos.x < transform.position.x && isPlaying ==false)
+            if (playerPos.x < transform.position.x)
             {
                 dist = "Left";
                 spriterenderer.flipX = false;
             }
-            else if (playerPos.x > transform.position.x&&isPlaying==false)
+            else if (playerPos.x > transform.position.x)
             {
                 dist = "Right";
                 spriterenderer.flipX = true;
@@ -212,28 +203,9 @@ public class 가오리 : MonoBehaviour
     }
     void onSkill()
     {
-        anim.SetTrigger("MonsterSkill");
-        MonsterSpeed = MonsterSpeed + 0.7f;
-        anim.SetInteger("MonsterIndex", index);
-        gameObject.tag = "EnemySkill";
-        Invoke("offSkill", 0.8f);
-    }
-    void offSkill()
-    {
-        PlaySkill = false;
-        gameObject.tag = "Enemy";
-        anim.SetInteger("MonsterIndex", index);
-        MonsterSpeed = MonsterSpeed - 0.7f;
-        Invoke("boolSkill", 3f);
-    }
-    void boolSkill()
-    {
-        PlaySkill = true;
-    }
-    void skillstart()
-    {
-        isPlaying = true;
-        if (spriterenderer.flipX == true)
+        transform.position = Vector3.MoveTowards(transform.position, traceTarget.transform.position, 0.1f);
+        rigid.velocity = Vector2.zero;
+        if (spriterenderer.flipX==true)
         {
             spriterenderer.flipX = false;
         }
@@ -241,9 +213,23 @@ public class 가오리 : MonoBehaviour
         {
             spriterenderer.flipX = true;
         }
+        anim.SetBool("MonsterSkill", true);
+        MonsterSpeed = MonsterSpeed + 1;
+        anim.SetInteger("MonsterIndex", index);
+        gameObject.tag = "EnemySkill";
+        Invoke("offSkill",0.2f);
     }
-    void skillend()
+    void offSkill()
     {
-        isPlaying = false;
+        PlaySkill = false;
+        gameObject.tag = "Enemy";
+        anim.SetBool("MonsterSkill", false);
+        anim.SetInteger("MonsterIndex", index);
+        MonsterSpeed = MonsterSpeed - 1;
+        Invoke("boolSkill", 2f);
+    }
+    void boolSkill()
+    {
+        PlaySkill = true;
     }
 }

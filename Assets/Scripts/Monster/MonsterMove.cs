@@ -43,9 +43,7 @@ public class MonsterMove : MonoBehaviour
     }
     private void Update()
     {
-        //몬스터 체력 바 업데이트
         bar.value = Mathf.Lerp(bar.value, (float)MonstercurHp / (float)TotalHp, Time.deltaTime * 10);
-        //플레이어 위치정보를 받아오고 스프라이트 반전
         if (isTracing&&isDied==false)
         {
             Vector3 playerPos = traceTarget.transform.position;
@@ -58,7 +56,6 @@ public class MonsterMove : MonoBehaviour
                 spriterenderer.flipX = true;
             }
         }
-        //몬스터가 죽었다면 플레이어의 슬로우 제거
         if(isDied==true)
         {
             PlayerMove.isSlow = false;
@@ -68,11 +65,11 @@ public class MonsterMove : MonoBehaviour
     private void FixedUpdate()
     {
         //몬스터 움직임
-        if (isDied == true)
+        if(isDied==true)
         {
             return;
         }
-        else if (isTracing == false && isDied == false)
+        else if (isTracing == false&&isDied==false)
         {
             rigid.velocity = new Vector2(nextmove * MonsterSpeed, rigid.velocity.y); //mosterspeed값 직접 입력
             Vector2 frontVec = new Vector2(rigid.position.x + nextmove, rigid.position.y);

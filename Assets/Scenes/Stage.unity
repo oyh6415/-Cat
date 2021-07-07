@@ -2082,12 +2082,20 @@ PrefabInstance:
     - target: {fileID: 4622017647620297823, guid: 0e10ac33c19755e4c924d1f1c24e1974,
         type: 3}
       propertyPath: m_LocalPosition.x
+<<<<<<< HEAD
       value: -13
+=======
+      value: -10.32
+>>>>>>> parent of 1a380c8 (가오리 수정)
       objectReference: {fileID: 0}
     - target: {fileID: 4622017647620297823, guid: 0e10ac33c19755e4c924d1f1c24e1974,
         type: 3}
       propertyPath: m_LocalPosition.y
+<<<<<<< HEAD
       value: -4
+=======
+      value: -5.33
+>>>>>>> parent of 1a380c8 (가오리 수정)
       objectReference: {fileID: 0}
     - target: {fileID: 4622017647620297823, guid: 0e10ac33c19755e4c924d1f1c24e1974,
         type: 3}
@@ -54522,7 +54530,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1665386754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68097,7 +68105,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1958781920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< HEAD
   m_LocalPosition: {x: -13, y: -4, z: -10}
+=======
+  m_LocalPosition: {x: -10.32, y: -5.33, z: -10}
+>>>>>>> parent of 1a380c8 (가오리 수정)
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1748347696}
@@ -73260,6 +73272,88 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< HEAD
+=======
+--- !u!1001 &105669585000042366
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 322439161}
+    m_Modifications:
+    - target: {fileID: 1743102226896911897, guid: e34491eb702f45a419d5f2f264fce5cb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743102226896911897, guid: e34491eb702f45a419d5f2f264fce5cb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743102226896911897, guid: e34491eb702f45a419d5f2f264fce5cb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743102226896911897, guid: e34491eb702f45a419d5f2f264fce5cb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743102226896911897, guid: e34491eb702f45a419d5f2f264fce5cb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743102226896911897, guid: e34491eb702f45a419d5f2f264fce5cb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743102226896911897, guid: e34491eb702f45a419d5f2f264fce5cb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743102226896911897, guid: e34491eb702f45a419d5f2f264fce5cb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743102226896911897, guid: e34491eb702f45a419d5f2f264fce5cb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743102226896911897, guid: e34491eb702f45a419d5f2f264fce5cb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743102226896911897, guid: e34491eb702f45a419d5f2f264fce5cb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743102226896911903, guid: e34491eb702f45a419d5f2f264fce5cb,
+        type: 3}
+      propertyPath: m_Name
+      value: "\uAC00\uC624\uB9AC"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329076575001778498, guid: e34491eb702f45a419d5f2f264fce5cb,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329076575001778498, guid: e34491eb702f45a419d5f2f264fce5cb,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e34491eb702f45a419d5f2f264fce5cb, type: 3}
+>>>>>>> parent of 1a380c8 (가오리 수정)
 --- !u!1001 &230514808613485450
 PrefabInstance:
   m_ObjectHideFlags: 0
