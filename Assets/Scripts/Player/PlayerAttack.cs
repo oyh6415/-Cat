@@ -27,13 +27,14 @@ public class PlayerAttack : MonoBehaviour
     {
         //coolTime=DemoDataManager.characterDatasList[0].itemspeed-DemoDataManager.characterDatasList[0].allagi*0.005m;
         anim = GetComponent<Animator>();
-        coolTime = coolTime = DemoDataManager.Instance.characterDatasList[0].itemspeed - DemoDataManager.Instance.characterDatasList[0].allagi * 0.005m;
+        //coolTime = DemoDataManager.Instance.characterDatasList[0].itemspeed - DemoDataManager.Instance.characterDatasList[0].allagi * 0.005m;
+        coolTime = 0.4m;
         agi = 15;
         isShooting = false;
 
         audioSource = GetComponent<AudioSource>();
     }
-    private void OnEnable()
+   /* private void OnEnable()
     {
         string weaponName = DemoDataManager.Instance.characterDatasList[0].weapon;
 
@@ -45,7 +46,7 @@ public class PlayerAttack : MonoBehaviour
                 bulletIndex = i;
             }
         }
-    }
+    }*/
     private void Update()
     {
         if (Input.GetKey(KeyCode.Z) && isShooting == false&&PlayerMove.isLiving==true)

@@ -34,7 +34,8 @@ public class MonsterMove : MonoBehaviour
         anim = GetComponent<Animator>();
         TotalHp = MonsterStat.MonsterTotalHp[index];
         MonstercurHp = TotalHp;
-        PlayerStr = DemoDataManager.Instance.characterDatasList[0].allstr;
+        PlayerStr = 10;
+        //PlayerStr = DemoDataManager.Instance.characterDatasList[0].allstr;
         //PlayerStr=DemoDataManager.characterDatasList[0].allstr;
         MonsterSpeed = 2f;
 

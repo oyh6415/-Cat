@@ -49,7 +49,8 @@ public class PlayerMove : MonoBehaviour
         spriterenderer = GetComponent<SpriteRenderer>();
         //gunsprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-        maxHp = maxHp=DemoDataManager.Instance.characterDatasList[0].hp;
+        maxHp = 300;
+        //maxHp = maxHp=DemoDataManager.Instance.characterDatasList[0].hp;
         curHp = maxHp;
         HeartCnt = 3;
         hpbar.value = (float)curHp / (float)maxHp;
@@ -60,7 +61,7 @@ public class PlayerMove : MonoBehaviour
     }
     private void OnEnable()
     {
-        WearingCheck();
+        //WearingCheck();
     }
 
     // Update is called once per frame
@@ -327,7 +328,7 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    private void WearingCheck()
+    /*private void WearingCheck()
     {
         string topName = DemoDataManager.Instance.characterDatasList[0].top;
         string bottomName = DemoDataManager.Instance.characterDatasList[0].bottoms;
@@ -362,5 +363,5 @@ public class PlayerMove : MonoBehaviour
                 weapon.GetComponent<SpriteRenderer>().sprite = weaponSprites[i];
             }
         }
-    }
+    }*/
 }
